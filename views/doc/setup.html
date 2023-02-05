@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <title>GitLocker - Git透明加密工具</title>
 <link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/style.min.6719d72e323121369d5caeb4264b95d8a63cf1deaab029da67602fe5a046e0a4.css">
+
 <body>
 <!-- header -->
 <div class="header">
@@ -63,24 +65,27 @@
                             </ul>
                             <h3 id="2gitlocker">2.GitLocker</h3>
                             <ul>
-                            <li>下载和安装<a href="https://charlie-ls.github.io/test/">GitLocker</a></li>
+                            <li>下载和安装<a href="https://github.com/charlie-ls/charlie-ls.github.io/releases/download/first/GitLockerInstaller.exe">GitLocker</a></li>
                             </ul>
                             <h3 id="3测试">3.测试</h3>
                             <p>执行命令:</p>
                             <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl -h
                             </span></span></code></pre></div><p>你会看到输出:</p>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">./gitl [Commands] [Options]
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> 
                             </span></span><span class="line"><span class="cl">
-                            </span></span><span class="line"><span class="cl">Options:
-                            </span></span><span class="line"><span class="cl">  -d, --gitdir &lt;gitdir&gt;  Git repo root dir.
-                            </span></span><span class="line"><span class="cl">  -h, --help             Displays help on commandline options 
+                            </span></span><span class="line"><span class="cl">usage: gitl [-V][-h][-d]  Commands [args] 
+                            </span></span><span class="line"><span class="cl">            
+                            </span></span><span class="line"><span class="cl"> **Gitlocker Commands**
                             </span></span><span class="line"><span class="cl">
-                            </span></span><span class="line"><span class="cl">Commands:
-                            </span></span><span class="line"><span class="cl">         encrypt
-                            </span></span><span class="line"><span class="cl">         decrypt
-                            </span></span><span class="line"><span class="cl">         initc
-                            </span></span><span class="line"><span class="cl">         export-key
-                            </span></span><span class="line"><span class="cl">         unlock
+                            </span></span><span class="line"><span class="cl">Init Remote Transparent Encryption
+                            </span></span><span class="line"><span class="cl">         initc      Initialize the remote transparent encryption key
+                            </span></span><span class="line"><span class="cl">         unlock     Decrypt the newly cloned repository
+                            </span></span><span class="line"><span class="cl">         export-key Export remote transparent encryption key(use for unlock)
+                            </span></span><span class="line"><span class="cl">          
+                            </span></span><span class="line"><span class="cl">encrypt or decrypt files/folders
+                            </span></span><span class="line"><span class="cl">         encrypt    encryption file/folder
+                            </span></span><span class="line"><span class="cl">         decrypt    decrypt file/folder
+                            </span></span><span class="line"><span class="cl">         info       file/folder 
                             </span></span></code></pre></div>
                             </div>
                           </div>

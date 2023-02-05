@@ -8,6 +8,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 <title>GitLocker - Git透明加密工具</title>
 <link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/style.min.6719d72e323121369d5caeb4264b95d8a63cf1deaab029da67602fe5a046e0a4.css">
+
 <body>
 <!-- header -->
 <div class="header">
@@ -52,8 +54,8 @@
                 <!-- mini-electron介绍 -->
                 <div class="doc-item" v-if="active == 4">
                     <div class="doc-item-title">使用GitLocker</div>
-                    <div class="doc-item-content">
-                        <div class="doc-item-content">
+                    <div class="col-12 col-md-9">
+                        
           
                             <h1 class="title">使用</h1>
                             <div class="content ">
@@ -62,9 +64,8 @@
                             <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /tmp/workdir
                             </span></span></code></pre></div><h3 id="初始化远程透明加密配置">#初始化远程透明加密配置</h3>
                             <p>第一次使用gitl,需要对仓库进行初始化操作.</p>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl cryptinit
-                            </span></span></code></pre></div><p>或者:</p>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gitl cryptinit -p your_passwd
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl initc
+                            </span></span></code></pre></div> 
                             </span></span></code></pre></div><blockquote>
                             <p>远程透明加密支持两种加密方式:</p>
                             <ol>
@@ -106,7 +107,7 @@
                             <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl deintegrate
                             </span></span></code></pre></div>
                             </div>
-                            </div>
+                         
                     </div>
                 </div>
             </div>
