@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<meta charset="UTF-8">
+<meta name="keywords" content="GitLocker,git,crypt">
+<meta name="description" content="GitLocker是一款跨平台Git透明加密工具">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<title>GitLocker - Git透明加密工具</title>
+<link rel="stylesheet" href="../../css/style.css">
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <div class="header-logo">
+            <h1>GitLocker</h1>
+        </div>
+        <div class="header-nav">
+            <div class="header-nav-item">
+                <a href="../../index.html">首页</a>
+            </div>
+            <div class="header-nav-item header-nav-active">
+                <a href="index.html">文档</a>
+            </div>
+            <div class="header-nav-item">
+                <a href=" " target="_bank">下载</a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-right-item">
+                <a href=" " target="_bank">
+                    <img src="../../images/icon/github.png">
+                    <span>Github</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- doc -->
+<div class="main" id="doc-page">
+    <div class="container">
+        <div class="side-bar">
+            <div class="side-bar-wrap">
+                <div class="side-bar-item"><a href="index.html">原理</a></div>
+                <div class="side-bar-item "><a href="setup.html">安装</a></div>
+                <div class="side-bar-item side-bar-item-active"><a href="usage.html">使用说明</a></div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="body-wrap">
+                <!-- mini-electron介绍 -->
+                <div class="doc-item" v-if="active == 4">
+                    <div class="doc-item-title">使用GitLocker</div>
+                    <div class="doc-item-content">
+                        <div class="doc-item-content">
+          
+                            <h1 class="title">使用</h1>
+                            <div class="content ">
+                              <p>假设有本地git工作区/tmp/workdir</p>
+                            <h3 id="进入本地仓库">#进入本地仓库</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /tmp/workdir
+                            </span></span></code></pre></div><h3 id="初始化远程透明加密配置">#初始化远程透明加密配置</h3>
+                            <p>第一次使用gitl,需要对仓库进行初始化操作.</p>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl cryptinit
+                            </span></span></code></pre></div><p>或者:</p>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gitl cryptinit -p your_passwd
+                            </span></span></code></pre></div><blockquote>
+                            <p>远程透明加密支持两种加密方式:</p>
+                            <ol>
+                            <li>自动生成key文件</li>
+                            <li>密码</li>
+                            </ol>
+                            </blockquote>
+                            <blockquote>
+                            <p>在加密和解密时不需要人工干预. <strong>需要保管好key文件</strong></p>
+                            </blockquote>
+                            <h3 id="导出key">#导出Key</h3>
+                            <p>导出远程透明加密key,用于解锁操作:</p>
+                            <p>···sh
+                            gitl export-key to-path
+                            ···</p>
+                            <h3 id="解密仓库">#解密仓库</h3>
+                            <p>如果新克隆的仓库已经被加密, 需要一次解密操作.</p>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl unlock -p your_passwd
+                            </span></span></code></pre></div><p>或者:</p>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl unlock -k key_path
+                            </span></span></code></pre></div><blockquote>
+                            <p>仅仅需要一次解密操作!</p>
+                            </blockquote>
+                            <h3 id="将文件标记为透明加密">#将文件标记为透明加密</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl encrypt -r plain.md
+                            </span></span></code></pre></div><h3 id="将文件标记为本地加密">#将文件标记为本地加密</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl encrypt plain.md -l -p passwd_for_this_file 
+                            </span></span></code></pre></div><h3 id="本地解密">#本地解密</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl decrypt plain.md -l -p passwd_for_this_file
+                            </span></span></code></pre></div><h3 id="远程解密">#远程解密</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl decrypt -r plain.md
+                            </span></span></code></pre></div><h3 id="与标准git无缝融合">#与标准git无缝融合</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl integrate
+                            </span></span></code></pre></div><blockquote>
+                            <p>融合后, 可以在命令行中将gitl替换成git,例如:</p>
+                            <p>gitl encrypt -r plain.md ==&gt; git encrypt -r plain.md</p>
+                            </blockquote>
+                            <h3 id="取消与标准git的融合">#取消与标准git的融合</h3>
+                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl deintegrate
+                            </span></span></code></pre></div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <!-- <p>Copyright 2019 <a class="__yjs_email__" href="https://miniblink.net/cdn-cgi/l/email-protection" data-yjsemail="2552404a4944576554540b464a48">[email&#160;protected]</a><script data-yjshash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p,m,o){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-yjshash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-yjsemail')){for(e='',o=0,r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2){m=('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);if((a.length-n)<=6&&a.length>=128)o=(parseInt(m)<=191)?1:o*2;if(o>1)break;e+='%'+m;}p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script> , 粤ICP备18103739号</p> -->
+    </div>
+</div>
+</body>
+</html>
