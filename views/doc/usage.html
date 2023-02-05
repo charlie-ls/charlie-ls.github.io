@@ -59,54 +59,25 @@
           
                             <h1 class="title">使用</h1>
                             <div class="content ">
-                              <p>假设有本地git工作区/tmp/workdir</p>
-                            <h3 id="进入本地仓库">#进入本地仓库</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /tmp/workdir
-                            </span></span></code></pre></div><h3 id="初始化远程透明加密配置">#初始化远程透明加密配置</h3>
-                            <p>第一次使用gitl,需要对仓库进行初始化操作.</p>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl initc
-                            </span></span></code></pre></div> 
-                            </span></span></code></pre></div><blockquote>
-                            <p>远程透明加密支持两种加密方式:</p>
-                            <ol>
-                            <li>自动生成key文件</li>
-                            <li>密码</li>
-                            </ol>
-                            </blockquote>
-                            <blockquote>
-                            <p>在加密和解密时不需要人工干预. <strong>需要保管好key文件</strong></p>
-                            </blockquote>
-                            <h3 id="导出key">#导出Key</h3>
-                            <p>导出远程透明加密key,用于解锁操作:</p>
-                            <p>···sh
-                            gitl export-key to-path
-                            ···</p>
-                            <h3 id="解密仓库">#解密仓库</h3>
-                            <p>如果新克隆的仓库已经被加密, 需要一次解密操作.</p>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl unlock -p your_passwd
-                            </span></span></code></pre></div><p>或者:</p>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl unlock -k key_path
-                            </span></span></code></pre></div><blockquote>
-                            <p>仅仅需要一次解密操作!</p>
-                            </blockquote>
-                            <h3 id="将文件标记为透明加密">#将文件标记为透明加密</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl encrypt -r plain.md
-                            </span></span></code></pre></div><h3 id="将文件标记为本地加密">#将文件标记为本地加密</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl encrypt plain.md -l -p passwd_for_this_file 
-                            </span></span></code></pre></div><h3 id="本地解密">#本地解密</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl decrypt plain.md -l -p passwd_for_this_file
-                            </span></span></code></pre></div><h3 id="远程解密">#远程解密</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl decrypt -r plain.md
-                            </span></span></code></pre></div><h3 id="与标准git无缝融合">#与标准git无缝融合</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl integrate
-                            </span></span></code></pre></div><blockquote>
-                            <p>融合后, 可以在命令行中将gitl替换成git,例如:</p>
-                            <p>gitl encrypt -r plain.md ==&gt; git encrypt -r plain.md</p>
-                            </blockquote>
-                            <h3 id="取消与标准git的融合">#取消与标准git的融合</h3>
-                            <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl deintegrate
-                            </span></span></code></pre></div>
-                            </div>
+                                <h3 id="初始化远程透明加密配置">#初始化远程透明加密配置</h3>
+                              <p>第一次使用gitl,需要对仓库进行初始化操作.</p>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl initc
+                              </span></span></code></pre></div><h3 id="导出key">#导出Key</h3>
+                              <p>导出远程透明加密key,用于解锁操作:</p>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl export-key to-path
+                              </span></span></code></pre></div><h3 id="解密仓库">#解密仓库</h3>
+                              <p>如果新克隆的仓库已经被加密, 需要一次解密操作.</p>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl unlock -k key_path
+                              </span></span></code></pre></div><h3 id="将文件标记为透明加密">#将文件标记为透明加密</h3>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl encrypt -r your_file
+                              </span></span></code></pre></div><h3 id="将文件标记为本地加密">#将文件标记为本地加密</h3>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl encrypt your_file -l -p passwd_for_this_file 
+                              </span></span></code></pre></div><h3 id="本地解密">#本地解密</h3>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl decrypt plain.md -l -p passwd_for_this_file
+                              </span></span></code></pre></div><h3 id="远程解密">#远程解密</h3>
+                              <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gitl decrypt -r plain.md
+                              </span></span></code></pre></div>
+                              </div>
                          
                     </div>
                 </div>
